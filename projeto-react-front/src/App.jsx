@@ -22,7 +22,7 @@ function App() {
   };
 
   const addItem = (newItem) => {
-    axios.post('http://localhost:5000/items', newItem)
+    return axios.post('http://localhost:5000/items', newItem)
       .then(response => setItems([...items, response.data]))
       .catch(error => console.error('Erro ao adicionar item', error));
   };

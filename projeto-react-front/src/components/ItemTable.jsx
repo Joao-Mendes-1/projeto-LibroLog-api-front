@@ -5,34 +5,28 @@ function ItemTable({ items, onItemClick, onRemoveItem }) {
   return (
     <div className="item-table-container">
       <h2 className="item-table-title">Lista de Itens</h2>
-      <table className="item-table">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Nome</th>
-            <th>Ações</th>
-          </tr>
-        </thead>
-        <tbody>
-          {items.map((item) => (
-            <tr key={item.id} onClick={() => onItemClick(item.id)}>
-              <td>{item.id}</td>
-              <td>{item.name}</td>
-              <td>
-                <button
-                  className="item-remove-button"
-                  onClick={(e) => {
-                    e.stopPropagation(); // Evitar conflito com o onClick da linha
-                    onRemoveItem(item.id);
-                  }}
-                >
-                  Remover
-                </button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <div className="item-catalog">
+        {items.map((item) => (
+          <div key={item.id} className="item-card">
+            <img
+              src={item.imageUrl}
+              alt={item.name}
+              className="item-card-image"
+              onClick={() => onItemClick(item.id)} // Abre o detalhe
+            />
+            <h3 className="item-card-title">{item.name}</h3>
+            <button
+              className="item-remove-button"
+              onClick={(e) => {
+                e.stopPropagation(); // Evita conflito com o clique da imagem
+                onRemoveItem(item.id); // Chama a função de remoção
+              }}
+            >
+              Remover
+            </button>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
