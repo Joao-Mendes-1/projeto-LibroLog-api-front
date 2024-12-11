@@ -1,0 +1,255 @@
+/* Variáveis de cores */
+:root {
+  --cor-primaria: #3498db;
+  --cor-secundaria: #2ecc71;
+  --cor-fundo: #f4f6f7;
+  --cor-cabecalho-rodape: #34495e;
+  --branco: #fff;
+  --cor-texto: #333;
+  --cor-hover: #2980b9;
+  --cor-botao: #e74c3c;
+  --cor-botao-hover: #c0392b;
+}
+
+/* Resetando estilos globais */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  font-family: 'Arial', sans-serif;
+  background-color: var(--cor-fundo);
+}
+
+/* Contêiner principal */
+.main-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px; /* Espaçamento ajustado */
+  
+}
+
+/* Títulos */
+h2, .item-form-title, .item-table-title {
+  font-size: 2rem;
+  color: var(--cor-primaria);
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Listas de itens */
+.item-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.item {
+  padding: 10px 15px;
+  font-size: 1.2rem;
+  background-color: var(--branco);
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.item:hover {
+  background-color: var(--cor-hover);
+  color: var(--branco);
+}
+
+.item.active {
+  background-color: var(--cor-primaria);
+  color: var(--branco);
+}
+
+/* Botões */
+button, .item-form-button, .item-remove-button {
+  padding: 10px 15px;
+  font-size: 1rem;
+  color: var(--branco);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  
+}
+
+button:hover, .item-form-button:hover, .item-remove-button:hover {
+  background-color: var(--cor-hover);
+  transform: scale(1.05);
+}
+
+/* Botões específicos */
+.item-remove-button {
+  background-color: var(--cor-botao);
+  
+}
+
+.item-remove-button:hover {
+  background-color: var(--cor-botao-hover);
+}
+
+.item-form-button {
+  background-color: var(--cor-secundaria);
+  margin-top: 10px;
+  width: 30%;
+  
+}
+
+/* Formulário */
+.item-form-container {
+  background-color: var(--branco);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.item-form {
+  display: inline-block;
+  width: 100%;
+  flex-direction: column;
+  gap: 25px; /* Espaçamento ajustado */
+}
+
+.item-form-input {
+  margin: 10px;
+  width: 60%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: border-color 0.3s ease;
+}
+
+.item-form-input:focus {
+  border-color: var(--cor-primaria);
+}
+
+/* Tabelas */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+table th,
+table td {
+  padding: 12px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+table th {
+  background-color: var(--cor-primaria);
+  color: var(--branco);
+}
+
+table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+table tr:hover {
+  background-color: var(--cor-secundaria);
+  color: var(--branco);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .main-container {
+    padding: 10px;
+  }
+
+  h2, .item-form-title, .item-table-title {
+    font-size: 1.5rem;
+  }
+
+  table {
+    font-size: 0.9rem;
+  }
+}
+
+/* Detalhe de Item */
+.detalhe-item {
+  background-color: var(--branco);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 60%;
+  /* max-width: 600px; */
+  margin: 0 auto;
+  font-family: 'Arial', sans-serif;
+  flex-direction: column;
+
+}
+
+/* Títulos */
+.detalhe-item h2 {
+  font-size: 1.8rem;
+  color: var(--cor-primaria);
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Inputs */
+.item-form-input {
+  width: 60%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: border-color 0.3s ease;
+  margin-top: 10px;
+}
+
+.item-form-input:focus {
+  border-color: var(--cor-primaria);
+}
+
+/* Botão Salvar */
+.item-form-button {
+  background-color: var(--cor-secundaria);
+  padding: 10px 15px;
+  font-size: 1rem;
+  color: var(--branco);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 20px;
+  width: 30%;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.item-form-button:hover {
+  background-color: var(--cor-hover);
+  transform: scale(1.05);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .detalhe-item {
+    padding: 15px;
+  }
+
+  .detalhe-item h2 {
+    font-size: 1.5rem;
+  }
+
+  .item-form-input {
+    width: 100%;
+  }
+
+  .item-form-button {
+    width: 100%;
+  }
+}
