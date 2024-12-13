@@ -1,7 +1,7 @@
 {
   "items": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Dom Casmurro",
       "author": "Machado de Assis",
       "year": 1899,
@@ -9,7 +9,7 @@
       "imageUrl": "https://m.media-amazon.com/images/I/81XpG2iKTlL._AC_UF1000,1000_QL80_.jpg"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "O Primo Basílio",
       "author": "José de Alencar",
       "year": 1862,
@@ -17,7 +17,7 @@
       "imageUrl": "https://m.media-amazon.com/images/I/51nSFqa6OTL._AC_UF1000,1000_QL80_.jpg"
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "O Cortiço",
       "author": "Aluísio Azevedo",
       "year": 1890,
@@ -25,7 +25,7 @@
       "imageUrl": "https://m.media-amazon.com/images/I/81m1emiSp-S.jpg"
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Memórias Póstumas de Brás Cubas",
       "author": "Machado de Assis",
       "year": 1881,
@@ -33,7 +33,7 @@
       "imageUrl": "https://m.media-amazon.com/images/I/815u+SBDpJL._AC_UF1000,1000_QL80_.jpg"
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "O Grande Gatsby",
       "author": "F. Scott Fitzgerald",
       "year": 1925,
@@ -41,7 +41,7 @@
       "imageUrl": "https://m.media-amazon.com/images/I/81xjr9TiTtL._AC_UF1000,1000_QL80_.jpg"
     },
     {
-      "id": 6,
+      "id": "6",
       "name": "1984",
       "author": "George Orwell",
       "year": 1949,
@@ -49,7 +49,7 @@
       "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThHBgjwuKeFI5_zprDcCDX_J-7mMeD-pjP3A&s"
     },
     {
-      "id": 9,
+      "id": "9",
       "name": "O Alienista",
       "author": "Machado de Assis",
       "year": 1882,
@@ -57,7 +57,7 @@
       "imageUrl": "https://m.media-amazon.com/images/I/81caWsOd1BL._AC_UF1000,1000_QL80_.jpg"
     },
     {
-      "id": 12,
+      "id": "12",
       "name": "O Senhor dos Anéis",
       "author": "J.R.R. Tolkien",
       "year": 1954,
@@ -65,7 +65,7 @@
       "imageUrl": "https://41.media.tumblr.com/957b9e06954c5e0dcd5fabab3c02c010/tumblr_nese5h10kA1sgzsvho1_500.jpg"
     },
     {
-      "id": 13,
+      "id": "13",
       "name": "Harry Potter e a Pedra Filosofal",
       "author": "J.K. Rowling",
       "year": 1997,
@@ -73,7 +73,7 @@
       "imageUrl": "https://m.media-amazon.com/images/I/61jgm6ooXzL._AC_UF1000,1000_QL80_.jpg"
     },
     {
-      "id": 14,
+      "id": "14",
       "name": "O Hobbit",
       "author": "J.R.R. Tolkien",
       "year": 1937,
@@ -81,7 +81,7 @@
       "imageUrl": "https://m.media-amazon.com/images/I/91M9xPIf10L.jpg"
     },
     {
-      "id": 18,
+      "id": "18",
       "name": "A Revolução dos Bichos",
       "author": "George Orwell",
       "year": 1945,
@@ -89,7 +89,7 @@
       "imageUrl": "https://m.media-amazon.com/images/I/91BsZhxCRjL._AC_UF1000,1000_QL80_.jpg"
     },
     {
-      "id": 20,
+      "id": "20",
       "name": "Drácula",
       "author": "Bram Stoker",
       "year": 1897,
@@ -103,14 +103,6 @@
       "year": "1864",
       "genre": "Ficção",
       "imageUrl": "https://m.media-amazon.com/images/I/A1s+6nCSdmL._AC_UF1000,1000_QL80_.jpg"
-    },
-    {
-      "id": "d597",
-      "name": "Hamlet",
-      "author": "William Shakespeare",
-      "year": "1623",
-      "genre": "Tragédia/Drama",
-      "imageUrl": "https://m.media-amazon.com/images/I/81D314P1V9L._AC_UF1000,1000_QL80_.jpg"
     }
   ]
 }

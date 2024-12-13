@@ -1,72 +1,86 @@
-import React, { useState, useEffect } from 'react';
-import '../styles/App.css'; // Importe o arquivo CSS com a estilização
+import React, { useState } from 'react';
+import '../styles/App.css';
 
 function ItemDetails({ item, onUpdateItem, onClose }) {
-  const [name, setName] = useState(item.name);
-  const [author, setAuthor] = useState(item.author);
-  const [year, setYear] = useState(item.year);
-  const [genre, setGenre] = useState(item.genre);
-  const [imageUrl, setImageUrl] = useState(item.imageUrl);
+  const [nome, setNome] = useState(item.nome);
+  const [autor, setAutor] = useState(item.autor);
+  const [ano, setAno] = useState(item.ano);
+  const [genero, setGenero] = useState(item.genero);
+  const [imagem, setImagem] = useState(item.imagem);
+  const [isEditing, setIsEditing] = useState(false);
 
   const handleUpdate = () => {
-    const updatedItem = { ...item, name, author, year, genre, imageUrl };
+    const updatedItem = { ...item, nome, autor, ano, genero, imagem };
     onUpdateItem(updatedItem);
-    onClose(); // Notifica o pai para fechar o componente
+    setIsEditing(false); // Para mostrar os detalhes novamente após a edição
   };
 
   return (
     <div className="detalhe-item">
       <h2>Detalhes do Item</h2>
-      <p>ID: {item.id}</p>
-      <div className="item-form">
-        <p>
-          Nome:
-          <input
-            type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            className="item-form-input" // Classe para o campo de input
-          />
-        </p>
-        <p>
-          Autor:
-          <input
-            type="text"
-            value={author}
-            onChange={(e) => setAuthor(e.target.value)}
-            className="item-form-input"
-          />
-        </p>
-        <p>
-          Ano:
-          <input
-            type="number"
-            value={year}
-            onChange={(e) => setYear(e.target.value)}
-            className="item-form-input"
-          />
-        </p>
-        <p>
-          Gênero:
-          <input
-            type="text"
-            value={genre}
-            onChange={(e) => setGenre(e.target.value)}
-            className="item-form-input"
-          />
-        </p>
-        <p>
-          Imagem (URL):
-          <input
-            type="text"
-            value={imageUrl}
-            onChange={(e) => setImageUrl(e.target.value)}
-            className="item-form-input"
-          />
-        </p>
-        <button onClick={handleUpdate} className="item-form-button">Salvar</button>
-      </div>
-      <button onClick={onClose} className="item-form-button">Fechar</button>
+      {!isEditing ? (
+        <>
+          <p><strong>Nome:</strong> {item.nome}</p>
+          <p><strong>Autor:</strong> {item.autor}</p>
+          <p><strong>Ano:</strong> {item.ano}</p>
+          <p><strong>Gênero:</strong> {item.genero}</p>
+          <button onClick={() => setIsEditing(true)} className="item-form-button">Editar</button>
+        </>
+      ) : (
+        <div className="item-form">
+          <p>
+            Nome:
+            <input
+              type="text"
+              value={nome}
+              onChange={(e) => setNome(e.target.value)}
+              className="item-form-input"
+            />
+          </p>
+          <p>
+            Autor:
+            <input
+              type="text"
+              value={autor}
+              onChange={(e) => setAutor(e.target.value)}
+              className="item-form-input"
+            />
+          </p>
+          <p>
+            Ano:
+            <input
+              type="number"
+              value={ano}
+              onChange={(e) => setAno(e.target.value)}
+              className="item-form-input"
+            />
+          </p>
+          <p>
+            Gênero:
+            <input
+              type="text"
+              value={genero}
+              onChange={(e) => setGenero(e.target.value)}
+              className="item-form-input"
+            />
+          </p>
+          <p>
+            Imagem (URL):
+            <input
+              type="text"
+              value={imagem}
+              onChange={(e) => setImagem(e.target.value)}
+              className="item-form-input"
+            />
+          </p>
+          <div className="form-buttons">
+            <button onClick={handleUpdate} className="item-form-button">Salvar</button>
+            <button onClick={() => setIsEditing(false)} className="item-form-button">Cancelar</button>
+          </div>
+        </div>
+      )}
+      {/* Escondendo o botão Fechar se estiver editando */}
+      {!isEditing && <button onClick={onClose} className="item-form-button">Fechar</button>}
     </div>
   );
 }

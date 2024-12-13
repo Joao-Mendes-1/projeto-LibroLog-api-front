@@ -2,21 +2,21 @@ import React, { useState } from 'react';
 import '../styles/App.css';
 
 function ItemForm({ onAddItem }) {
-  const [name, setName] = useState('');
-  const [author, setAuthor] = useState('');
-  const [year, setYear] = useState('');
-  const [genre, setGenre] = useState('');
-  const [imageUrl, setImageUrl] = useState('');
+  const [nome, setNome] = useState('');
+  const [autor, setAutor] = useState('');
+  const [ano, setAno] = useState('');
+  const [genero, setGenero] = useState('');
+  const [imagem, setImagem] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const newItem = { name, author, year, genre, imageUrl };
+    const newItem = { nome, autor, ano, genero, imagem };
     onAddItem(newItem);
-    setName('');
-    setAuthor('');
-    setYear('');
-    setGenre('');
-    setImageUrl('');
+    setNome('');
+    setAutor('');
+    setAno('');
+    setGenero('');
+    setImagem('');
   };
 
   return (
@@ -25,40 +25,40 @@ function ItemForm({ onAddItem }) {
       <form onSubmit={handleSubmit} className="item-form">
         <input
           type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
+          value={nome}
+          onChange={(e) => setNome(e.target.value)}
           placeholder="Digite o nome do item"
           required
           className="item-form-input"
         />
         <input
           type="text"
-          value={author}
-          onChange={(e) => setAuthor(e.target.value)}
+          value={autor}
+          onChange={(e) => setAutor(e.target.value)}
           placeholder="Digite o autor"
           required
           className="item-form-input"
         />
         <input
           type="number"
-          value={year}
-          onChange={(e) => setYear(e.target.value)}
+          value={ano}
+          onChange={(e) => setAno(e.target.value)}
           placeholder="Digite o ano"
           required
           className="item-form-input"
         />
         <input
           type="text"
-          value={genre}
-          onChange={(e) => setGenre(e.target.value)}
+          value={genero}
+          onChange={(e) => setGenero(e.target.value)}
           placeholder="Digite o gênero"
           required
           className="item-form-input"
         />
         <input
           type="text"
-          value={imageUrl}
-          onChange={(e) => setImageUrl(e.target.value)}
+          value={imagem}
+          onChange={(e) => setImagem(e.target.value)}
           placeholder="Digite a URL da imagem"
           required
           className="item-form-input"
