@@ -21,7 +21,7 @@ function ItemForm({ onAddItem }) {
 
   return (
     <div className="item-form-container">
-      <h2 className="item-form-title">Adicionar Novo Item</h2>
+      <h2 className="item-form-title">Adicionar Novo Livro</h2>
       <form onSubmit={handleSubmit} className="item-form">
         <input
           type="text"

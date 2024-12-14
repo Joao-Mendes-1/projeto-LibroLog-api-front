@@ -12,7 +12,7 @@ function ItemDetails({ item, onUpdateItem, onClose }) {
   const handleUpdate = () => {
     const updatedItem = { ...item, nome, autor, ano, genero, imagem };
     onUpdateItem(updatedItem);
-    setIsEditing(false); // Para mostrar os detalhes novamente após a edição
+    setIsEditing(false);
   };
 
   return (
@@ -79,7 +79,6 @@ function ItemDetails({ item, onUpdateItem, onClose }) {
           </div>
         </div>
       )}
-      {/* Escondendo o botão Fechar se estiver editando */}
       {!isEditing && <button onClick={onClose} className="item-form-button">Fechar</button>}
     </div>
   );

@@ -1,17 +1,18 @@
 import React from 'react';
-import '../styles/App.css'; // Estilos específicos para o Header
+import { Link } from 'react-router-dom';
+import '../styles/Home.css'; // Reutilizando o estilo da Home
+import libroLogLogo from '../styles/imagens/libro-log-removebg.png';
 
 const Header = () => {
   return (
-    <header className="header">
-      <div className="logo-container">
-        <img src="/logo.png" alt="Logo" className="logo" />
+    <header className="home-header">
+      <div className="logo">
+        <img src={libroLogLogo} alt="Logo da LibroLog" />
       </div>
-      <nav>
-        <ul className="nav-list">
-          <li><a href="/" className="nav-item">Home</a></li>
-          <li><a href="/about" className="nav-item">About</a></li>
-        </ul>
+      <nav className="nav-menu">
+        <Link to="/catalogo">Catálogo</Link>
+        <Link to="#sobre-nos">Sobre Nós</Link>
+        <Link to="#contato">Contato</Link>
       </nav>
     </header>
   );
