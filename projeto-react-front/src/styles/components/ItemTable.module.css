@@ -1,0 +1,94 @@
+.item-catalog-horizontal-container {
+    width: 100%;
+    overflow-x: auto;
+    
+  }
+  
+  .item-catalog-horizontal {
+    display: flex;
+    gap: 15px;
+    padding: 10px;
+    scroll-behavior: smooth;
+  }
+  
+  .item-catalog-horizontal::-webkit-scrollbar {
+    height: 10px;
+  }
+  
+  .item-catalog-horizontal::-webkit-scrollbar-thumb {
+    background-color: var(--cor-primaria);
+    border-radius: 4px;
+  }
+  
+  .item-catalog-horizontal::-webkit-scrollbar-track {
+    background-color: var(--cor-fundo);
+  }
+  
+  
+  /* Estilo para os cards no layout horizontal */
+  .item-card-horizontal {
+    flex: 0 0 auto;
+    width: 250px;
+    padding: 5px;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .item-card-horizontal:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Imagem do livro no layout horizontal */
+  .item-card-image-horizontal {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 10px;
+  }
+  
+  /* Botões */
+  .item-remove-button {
+    padding: 10px 15px;
+    font-size: 1rem;
+    color: var(--branco);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .item-remove-button:hover {
+    background-color: var(--cor-hover);
+    transform: scale(1.05);
+  }
+  
+  .item-remove-button {
+    margin: 10px 0 10px 0;
+    padding: 5px 8px;
+    font-size: 0.9rem;
+    background-color: var(--cor-botao);
+  }
+  
+  .item-remove-button:hover {
+    background-color: var(--cor-botao-hover);
+  }
+  
+  .item-catalog-horizontal-container {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: 15px;
+  padding: 10px;
+}
+
+.item-card-horizontal {
+  flex: 0 0 250px; /* Define uma largura fixa para os cards */
+  text-align: center;
+}

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../styles/App.css';
+import styles from '../styles/components/ItemForm.module.css'; // Importando o módulo CSS
 
 function ItemForm({ onAddItem }) {
   const [nome, setNome] = useState('');
@@ -20,16 +20,16 @@ function ItemForm({ onAddItem }) {
   };
 
   return (
-    <div className="item-form-container">
-      <h2 className="item-form-title">Adicionar Novo Livro</h2>
-      <form onSubmit={handleSubmit} className="item-form">
+    <div className={styles.itemFormContainer}>
+      <h2 className={styles.itemFormTitle}>Adicionar Novo Livro</h2>
+      <form onSubmit={handleSubmit} className={styles.itemForm}>
         <input
           type="text"
           value={nome}
           onChange={(e) => setNome(e.target.value)}
           placeholder="Digite o nome do item"
           required
-          className="item-form-input"
+          className={styles.itemFormInput}
         />
         <input
           type="text"
@@ -37,7 +37,7 @@ function ItemForm({ onAddItem }) {
           onChange={(e) => setAutor(e.target.value)}
           placeholder="Digite o autor"
           required
-          className="item-form-input"
+          className={styles.itemFormInput}
         />
         <input
           type="number"
@@ -45,7 +45,7 @@ function ItemForm({ onAddItem }) {
           onChange={(e) => setAno(e.target.value)}
           placeholder="Digite o ano"
           required
-          className="item-form-input"
+          className={styles.itemFormInput}
         />
         <input
           type="text"
@@ -53,7 +53,7 @@ function ItemForm({ onAddItem }) {
           onChange={(e) => setGenero(e.target.value)}
           placeholder="Digite o gênero"
           required
-          className="item-form-input"
+          className={styles.itemFormInput}
         />
         <input
           type="text"
@@ -61,9 +61,9 @@ function ItemForm({ onAddItem }) {
           onChange={(e) => setImagem(e.target.value)}
           placeholder="Digite a URL da imagem"
           required
-          className="item-form-input"
+          className={styles.itemFormInput}
         />
-        <button type="submit" className="item-form-button">Adicionar</button>
+        <button type="submit" className={styles.itemFormButton}>Adicionar</button>
       </form>
     </div>
   );

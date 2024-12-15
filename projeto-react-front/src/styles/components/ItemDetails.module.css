@@ -1,0 +1,113 @@
+/* Estilo para Detalhes do Item */
+.detalheItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--branco);
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    width: 40%;
+    /* max-width: 600px; */
+    margin: 40px auto;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .detalheItem:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .detalheItem h2 {
+    font-size: 2rem;
+    color: var(--cor-primaria);
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .detalheItem p {
+    font-size: 1rem;
+    color: var(--cor-texto);
+    margin: 10px 0;
+  }
+  
+  /* Estilo do Formulário */
+  .itemForm {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+  }
+  
+  .itemFormInput {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .itemFormInput:focus {
+    border-color: var(--cor-primaria);
+    box-shadow: 0 0 5px rgba(0, 47, 108, 0.3);
+    outline: none;
+  }
+  
+  /* Botões */
+  .itemFormButton {
+    margin: 10px 0 10px 0;
+    background-color: var(--cor-secundaria);
+    color: var(--branco);
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  .itemFormButtonOut {
+    font-size: 1rem;
+    font-weight: bold;
+    margin: 10px 0 10px 0;
+    background-color: var(--cor-botao);
+    color: var(--branco);
+    padding: 10px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  .itemFormButtonOut:hover {
+    background-color: var(--cor-botao-hover);
+    transform: scale(1.05);
+  }
+  
+  .itemFormButton:hover {
+    background-color: var(--cor-hover);
+    transform: scale(1.05);
+  }
+  
+  .formButtons {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  
+  /* Responsividade */
+  @media (max-width: 768px) {
+    .detalheItem {
+      width: 95%;
+    }
+  
+    .detalheItem h2 {
+      font-size: 1.5rem;
+    }
+  
+    .itemFormButton { 
+      font-size: 0.9rem;
+      padding: 8px 15px;
+    }
+  }
+  

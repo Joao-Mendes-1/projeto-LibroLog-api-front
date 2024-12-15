@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import Header from '../components/Header.jsx';
 import Main from '../components/Main.jsx';
 import Footer from '../components/Footer.jsx';
-import '../styles/Home.css'; 
+import '../styles/Home.css';
 
 const Home = () => {
   useEffect(() => {
@@ -11,11 +11,14 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="home-container">
-      <Header />
-      <Main />
-      <Footer />
+    <body>
+      <div className="home-container">
+        <Header />
+        <Main />
+        <Footer />
     </div>
+    </body>
+
   );
 };
 

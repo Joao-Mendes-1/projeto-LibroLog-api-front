@@ -1,0 +1,38 @@
+/* styles/components/Footer.module.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400;500&display=swap');
+
+footer {
+  background-color: #313131;
+  color: white;
+  padding: 20px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 40px;
+  border-radius: 8px;
+}
+
+footer p {
+  font-family: 'Roboto', sans-serif;
+  margin-top: 20px;
+  font-size: 1rem;
+  color: #ffffff;
+}
+
+footer div {
+  margin-top: 20px;
+}
+
+footer div a {
+  margin: 0 15px;
+  color: #ffffff;
+  font-size: 1.5rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+footer div a:hover {
+  color: #024499;
+}

@@ -1,13 +1,11 @@
 import React from 'react';
-import '../styles/Home.css'; // Reutilizando o estilo da Home
+import '../styles/components/Footer.module.css'; // Reutilizando o estilo da Home
 
 const Footer = () => {
   return (
-    <footer className="home-footer">
-      <div className="footer-logo">
-      </div>
+    <footer className="footer" id='contato'>
       <p>&copy; 2024 LibroLog — Todos os direitos reservados.</p>
-      <div className="social-links">
+      <div className="links">
         <a href="https://facebook.com/librolog" target="_blank" rel="noopener noreferrer">
           <i className="fab fa-facebook"></i>
         </a>

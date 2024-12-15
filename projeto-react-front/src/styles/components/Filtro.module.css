@@ -1,0 +1,90 @@
+/* Estilos gerais para o container do filtro */
+.filtro-container {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin: 0 auto 20px;
+    font-family: Arial, sans-serif;
+}
+
+/* Estilo do título */
+.filtro-container h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* Estilos para a mensagem de carregamento */
+.filtro-container p {
+    font-size: 1rem;
+    color: #777;
+    text-align: center;
+}
+
+/* Estilos para os itens de filtro */
+.filtro-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    cursor: pointer;
+    box-sizing: border-box; /* Inclui padding no tamanho do elemento */
+    padding: 5px; /* Adiciona o padding diretamente */
+    border-radius: 4px;
+    transition: background-color 0.3s ease; /* Suaviza o efeito de hover */
+}
+
+.filtro-item input[type="checkbox"] {
+    margin-right: 10px;
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.filtro-item:hover {
+    background-color: #e8f0fe;
+}
+
+/* Estilo para o texto do filtro */
+.filtro-item label {
+    font-size: 1rem;
+    color: #444;
+}
+
+/* Adiciona transições suaves */
+.filtro-item input[type="checkbox"] {
+    transition: all 0.3s ease;
+}
+
+/* Estilo para estados de hover e foco */
+.filtro-item input[type="checkbox"]:hover {
+    transform: scale(1.1);
+}
+
+.filtro-item input[type="checkbox"]:focus {
+    outline: 2px solid #4a90e2;
+    outline-offset: 2px;
+}
+
+/* Estilo responsivo para telas menores */
+@media (max-width: 600px) {
+    .filtro-container {
+        padding: 15px;
+        font-size: 0.9rem;
+    }
+
+    .filtro-container h3 {
+        font-size: 1.2rem;
+    }
+
+    .filtro-item {
+        margin-bottom: 8px;
+    }
+
+    .filtro-item input[type="checkbox"] {
+        width: 16px;
+        height: 16px;
+    }
+}

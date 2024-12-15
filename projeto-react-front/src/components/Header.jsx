@@ -1,18 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../styles/Home.css'; // Reutilizando o estilo da Home
+import styles from '../styles/components/Header.module.css'; // Importando o CSS modularizado
 import libroLogLogo from '../styles/imagens/libro-log-removebg.png';
 
 const Header = () => {
   return (
-    <header className="home-header">
-      <div className="logo">
+    <header className={styles.header}>
+      <div>
         <img src={libroLogLogo} alt="Logo da LibroLog" />
       </div>
-      <nav className="nav-menu">
+      <nav className={styles.nav}>
         <Link to="/catalogo">Catálogo</Link>
-        <Link to="#sobre-nos">Sobre Nós</Link>
-        <Link to="#contato">Contato</Link>
+        <a href="#sobre-nos">Sobre Nós</a> {/* Usando <a> ao invés de <Link> para rolagem suave */}
+        <a href="#contato">Contato</a> {/* Usando <a> ao invés de <Link> para rolagem suave */}
       </nav>
     </header>
   );

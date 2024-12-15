@@ -1,0 +1,73 @@
+/* Variáveis de cores */
+:root {
+  --cor-primaria: #333;
+  --cor-secundaria: #002F6C;
+  --cor-fundo: #f4f6f7;
+  --cor-cabecalho-rodape: #34495e;
+  --branco: #fff;
+  --cor-texto: #333;
+  --cor-botao: #e74c3c;
+  --cor-botao-hover: #c0392b;
+  --cor-hover:#024499;
+}
+
+/* Resetando estilos globais */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  font-family: 'Arial', sans-serif;
+  background-color: var(--cor-fundo);
+}
+
+
+/* Contêiner principal */
+.main-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  justify-content: center;
+  min-height: 100vh; /* Altura mínima para ocupar a tela toda */
+  overflow-y: auto;  /* Adiciona rolagem vertical caso necessário */
+}
+
+.catalogo-layout {
+  display: flex;
+  gap: 20px;
+  
+}
+
+.catalogo-filtro {
+  flex: 1; /* Ocupa 20% da largura */
+  max-width: 250px;
+}
+
+.catalogo-carrossel {
+  flex: 3; /* Ocupa o restante do espaço */
+  overflow-x: scroll; /* Permite a rolagem horizontal */
+  scroll-behavior:smooth; /* Adiciona rolagem suave */
+  display: flex; /* Garante que os itens fiquem em linha */
+  gap: 10px; /* Espaçamento entre os itens */
+}
+
+.item-card-horizontal {
+  flex: 1 0 30%; /* Ajuste o tamanho de cada item no carrossel */
+  max-width: 300px; /* Tamanho máximo do card */
+  margin-bottom: 20px; /* Espaço entre os itens */
+  cursor: pointer;
+}
+
+/* Carrossel com largura fixa */
+.catalogo-carrossel {
+  width: 800px; /* Largura fixa para o carrossel */
+  overflow-x: auto;
+  display: flex;
+  gap: 10px;
+}

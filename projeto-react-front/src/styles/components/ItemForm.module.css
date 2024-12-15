@@ -1,0 +1,68 @@
+/* ItemForm.module.css */
+
+/* Contêiner do formulário */
+.itemFormContainer {
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    background-color: var(--branco);
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 90px;
+  }
+  
+  /* Título do formulário */
+  .itemFormTitle {
+    font-size: 1.8rem;
+    color: var(--cor-primaria);
+    margin: 20px 0 20px 0;
+  }
+  
+  /* Estilo do formulário */
+  .itemForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    width: 50%;
+  }
+  
+  /* Estilo dos inputs do formulário */
+  .itemFormInput {
+    margin: 10px;
+    width: 90%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-color 0.3s ease;
+  }
+  
+  /* Foco no input */
+  .itemFormInput:focus {
+    border-color: var(--cor-primaria);
+  }
+  
+  /* Botão de adicionar */
+  .itemFormButton {
+    margin: 10px 0 10px 0;
+    background-color: var(--cor-secundaria);
+    color: var(--branco);
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  /* Efeito hover do botão */
+  .itemFormButton:hover {
+    background-color: var(--cor-hover);
+    transform: scale(1.05);
+  }
+  
