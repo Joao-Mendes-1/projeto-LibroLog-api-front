@@ -2,67 +2,113 @@
 
 /* Contêiner do formulário */
 .itemFormContainer {
-    margin: 0 auto;
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-    background-color: var(--branco);
-    padding: 10px;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    margin-bottom: 90px;
-  }
-  
-  /* Título do formulário */
-  .itemFormTitle {
-    font-size: 1.8rem;
-    color: var(--cor-primaria);
-    margin: 20px 0 20px 0;
-  }
-  
-  /* Estilo do formulário */
-  .itemForm {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 25px;
-    width: 50%;
-  }
-  
-  /* Estilo dos inputs do formulário */
-  .itemFormInput {
-    margin: 10px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  max-width: 600px;
+  background-color: var(--branco, #fff);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 90px;
+}
+
+/* Título do formulário */
+.itemFormTitle {
+  font-size: 1.8rem;
+  color: var(--cor-primaria, #333);
+  margin: 20px 0;
+  text-align: center;
+}
+
+/* Estilo do formulário */
+.itemForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+}
+
+/* Estilo dos inputs */
+.itemFormInput {
+  width: 100%;
+  max-width: 400px;
+  padding: 12px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  background-color: #fafafa;
+}
+
+.itemFormInput:focus {
+  border-color: var(--cor-primaria, #007bff);
+  background-color: #fff;
+  outline: none;
+}
+
+/* Botão */
+.itemFormButton {
+  width: auto;
+  max-width: 200px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: var(--cor-secundaria, #007bff);
+  color: var(--branco, #fff);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.itemFormButton:hover {
+  background-color: var(--cor-hover, #0056b3);
+  transform: scale(1.05);
+}
+
+.itemFormButton:active {
+  transform: scale(0.95);
+}
+
+/* Media queries */
+@media (max-width: 768px) {
+  .itemFormContainer {
     width: 90%;
-    padding: 10px;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    transition: border-color 0.3s ease;
+    padding: 20px;
   }
-  
-  /* Foco no input */
-  .itemFormInput:focus {
-    border-color: var(--cor-primaria);
+
+  .itemFormTitle {
+    font-size: 1.5rem;
   }
-  
-  /* Botão de adicionar */
+
+  .itemFormInput {
+    width: 100%;
+  }
+
   .itemFormButton {
-    margin: 10px 0 10px 0;
-    background-color: var(--cor-secundaria);
-    color: var(--branco);
-    padding: 10px 20px;
-    font-size: 1rem;
-    font-weight: bold;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: 100%;
+    max-width: none;
+    padding: 12px;
   }
-  /* Efeito hover do botão */
-  .itemFormButton:hover {
-    background-color: var(--cor-hover);
-    transform: scale(1.05);
+}
+
+@media (max-width: 480px) {
+  .itemFormContainer {
+    width: 100%; /* Agora ocupa toda a largura no mobile */
+    padding: 15px; /* Ajuste o padding se necessário */
   }
-  
+
+  .itemFormTitle {
+    font-size: 1.2rem;
+  }
+
+  .itemFormButton {
+    font-size: 0.9rem;
+  }
+}

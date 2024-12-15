@@ -69,10 +69,12 @@
 }
 
 /* Estilo responsivo para telas menores */
-@media (max-width: 600px) {
+@media (max-width: 300px) {
     .filtro-container {
         padding: 15px;
         font-size: 0.9rem;
+        max-width: 100%; /* Faz com que o filtro ocupe toda a largura disponível */
+        margin-bottom: 15px; /* Ajuste o espaçamento inferior */
     }
 
     .filtro-container h3 {
@@ -86,5 +88,9 @@
     .filtro-item input[type="checkbox"] {
         width: 16px;
         height: 16px;
+    }
+
+    .filtro-item label {
+        font-size: 0.9rem; /* Reduz o tamanho da fonte do texto para se ajustar à tela */
     }
 }

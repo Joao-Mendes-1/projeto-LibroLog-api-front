@@ -8,7 +8,7 @@
   --cor-texto: #333;
   --cor-botao: #e74c3c;
   --cor-botao-hover: #c0392b;
-  --cor-hover:#024499;
+  --cor-hover: #024499;
 }
 
 /* Resetando estilos globais */
@@ -23,7 +23,6 @@ body, html {
   font-family: 'Arial', sans-serif;
   background-color: var(--cor-fundo);
 }
-
 
 /* Contêiner principal */
 .main-container {
@@ -41,7 +40,6 @@ body, html {
 .catalogo-layout {
   display: flex;
   gap: 20px;
-  
 }
 
 .catalogo-filtro {
@@ -52,7 +50,7 @@ body, html {
 .catalogo-carrossel {
   flex: 3; /* Ocupa o restante do espaço */
   overflow-x: scroll; /* Permite a rolagem horizontal */
-  scroll-behavior:smooth; /* Adiciona rolagem suave */
+  scroll-behavior: smooth; /* Adiciona rolagem suave */
   display: flex; /* Garante que os itens fiquem em linha */
   gap: 10px; /* Espaçamento entre os itens */
 }
@@ -70,4 +68,47 @@ body, html {
   overflow-x: auto;
   display: flex;
   gap: 10px;
+}
+
+/* Estilos Responsivos para Tamanhos de Tela Menores */
+@media (max-width: 768px) {
+  /* Ajuste no layout do contêiner principal */
+  
+  .main-container {
+    padding: 10px; /* Menos padding para telas menores */
+  }
+
+  /* Ajuste no layout do catálogo */
+  .catalogo-layout {
+    max-width: 300px;
+    flex-direction: column; /* Empilha os itens verticalmente */
+  }
+
+  /* Ajuste para o filtro do catálogo */
+  .catalogo-filtro {
+    
+    max-width: 300px; /* Filtro ocupa toda a largura */
+    flex: none; /* Remove o flex */
+  }
+
+  /* Ajuste para o carrossel */
+  .catalogo-carrossel {
+    width: 100%; /* Carrossel ocupa toda a largura */
+    overflow-x: scroll; /* Permite rolagem horizontal */
+    scroll-behavior: smooth;
+  }
+
+  .item-card-horizontal {
+    max-width: 100%; /* Ajusta a largura máxima do item */
+    flex: none; /* Remove o ajuste de flex */
+    margin-bottom: 15px; /* Menos espaço entre os itens */
+  }
+}
+
+@media (max-width: 480px) {
+  /* Ajustes ainda mais específicos para telas muito pequenas */
+  .item-card-horizontal {
+    max-width: 100%; /* Item ocupa toda a largura da tela */
+    margin-bottom: 10px; /* Reduz o espaço entre os itens */
+  }
 }
