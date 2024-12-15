@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/components/Footer.module.css'; // Reutilizando o estilo da Home
+import '../styles/components/Footer.module.css';
 
 const Footer = () => {
   return (

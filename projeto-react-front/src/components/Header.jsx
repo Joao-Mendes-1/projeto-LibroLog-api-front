@@ -11,8 +11,8 @@ const Header = () => {
       </div>
       <nav className={styles.nav}>
         <Link to="/catalogo">Catálogo</Link>
-        <a href="#sobre-nos">Sobre Nós</a> {/* Usando <a> ao invés de <Link> para rolagem suave */}
-        <a href="#contato">Contato</a> {/* Usando <a> ao invés de <Link> para rolagem suave */}
+        <a href="#sobre-nos">Sobre Nós</a> 
+        <a href="#contato">Contato</a> 
       </nav>
     </header>
   );

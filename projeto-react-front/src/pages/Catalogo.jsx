@@ -6,28 +6,30 @@ import ItemForm from '../components/ItemForm';
 import Filtro from '../components/Filtro';
 import '../styles/Catalogo.css';
 
-
 function Catalogo() {
+  // Estados para gerenciar os itens, itens filtrados, gêneros, e o item selecionado
   const [items, setItems] = useState([]);
-  const [filteredItems, setFilteredItems] = useState([]); // Para armazenar os itens filtrados
-  const [genres, setGenres] = useState([]); // Para armazenar os gêneros disponíveis
-  const [selectedGenres, setSelectedGenres] = useState([]); // Para armazenar os gêneros selecionados
-  const [selectedItem, setSelectedItem] = useState(null);
-  const carouselRef = useRef(null);
-  const scrollVelocity = useRef(0);
+  const [filteredItems, setFilteredItems] = useState([]); // Itens após o filtro
+  const [genres, setGenres] = useState([]); // Gêneros disponíveis
+  const [selectedGenres, setSelectedGenres] = useState([]); // Gêneros selecionados para o filtro
+  const [selectedItem, setSelectedItem] = useState(null); // Item selecionado para exibição detalhada
+  const carouselRef = useRef(null); // Referência ao carrossel para manipulação direta
+  const scrollVelocity = useRef(0); // Controla a velocidade de rolagem suave
 
+  // Altera o título da página ao carregar o componente
   useEffect(() => {
-    document.title = "Catálogo - LibroLog"; // Altera o título da página para 'Catálogo - LibroLog'
+    document.title = "Catálogo - LibroLog";
   }, []);
-  
+
+  // Carrega os itens e os gêneros disponíveis ao montar o componente
   useEffect(() => {
     axios.get('http://localhost:8080/livros')
       .then(response => {
         const livros = response.data;
         setItems(livros);
-        setFilteredItems(livros);
+        setFilteredItems(livros); // Inicialmente, mostra todos os itens
 
-        // Extrair gêneros únicos
+        // Extrai os gêneros únicos dos livros
         const allGenres = livros.flatMap(livro => livro.generos || []);
         const uniqueGenres = [...new Set(allGenres)];
         setGenres(uniqueGenres);
@@ -35,8 +37,8 @@ function Catalogo() {
       .catch(error => console.error('Erro ao carregar os itens', error));
   }, []);
 
+  // Aplica o filtro de gêneros aos livros sempre que a seleção de gêneros mudar
   useEffect(() => {
-    // Faz a requisição quando o filtro de gêneros for alterado
     if (selectedGenres.length > 0) {
       const generoQuery = selectedGenres.join(',');
       axios.get(`http://localhost:8080/livros/filtro?genero=${generoQuery}`)
@@ -45,106 +47,111 @@ function Catalogo() {
         })
         .catch(error => console.error('Erro ao carregar livros filtrados', error));
     } else {
-      // Se não houver gênero selecionado, mostra todos os livros
-      setFilteredItems(items);
+      setFilteredItems(items); // Se nenhum filtro for aplicado, mostra todos os itens
     }
-  }, [selectedGenres, items]); // Quando selectedGenres mudar, atualiza a lista filtrada
+  }, [selectedGenres, items]); // Dependência dos gêneros e dos itens
 
+  // Controla a rolagem suave do carrossel
   useEffect(() => {
     const carousel = carouselRef.current;
-  
-    // Controla a velocidade da rolagem
-    const scrollSensitivity = 10; // Aumentar esse valor vai fazer a rolagem mais rápida
-    const friction = 0.85; // A diminuição da velocidade ao longo do tempo
-  
+    const scrollSensitivity = 10; // Sensibilidade da rolagem
+    const friction = 0.85; // Fator de fricção para desacelerar a rolagem
+
+    // Função que lida com o evento de rolagem
     const handleWheel = (event) => {
       event.preventDefault();
-      scrollVelocity.current += event.deltaY * scrollSensitivity; // Aumenta a velocidade da rolagem
+      scrollVelocity.current += event.deltaY * scrollSensitivity;
     };
-  
+
+    // Função que executa a rolagem suave
     const smoothScroll = () => {
-      if (Math.abs(scrollVelocity.current) > 1) { // Menor valor para mais sensibilidade
+      if (Math.abs(scrollVelocity.current) > 1) {
         carousel.scrollLeft += scrollVelocity.current;
-        scrollVelocity.current *= friction; // Fricção para suavizar a rolagem
+        scrollVelocity.current *= friction; // Aplica a fricção
         requestAnimationFrame(smoothScroll); // Mantém a animação fluida
       } else {
-        scrollVelocity.current = 0; // Para a rolagem quando a velocidade for pequena o suficiente
+        scrollVelocity.current = 0;
       }
     };
-  
+
+    // Inicia a rolagem suave
     const startSmoothScroll = () => {
       if (scrollVelocity.current !== 0) {
-        smoothScroll(); // Inicia a rolagem suave quando necessário
+        smoothScroll();
       }
     };
-  
+
     carousel.addEventListener('wheel', handleWheel);
-    const intervalId = setInterval(startSmoothScroll, 16); // Mantém a animação fluida
-  
+    const intervalId = setInterval(startSmoothScroll, 16); // Intervalo para animação fluida
+
     return () => {
-      carousel.removeEventListener('wheel', handleWheel);
-      clearInterval(intervalId);
+      carousel.removeEventListener('wheel', handleWheel); // Limpeza do evento
+      clearInterval(intervalId); // Limpeza do intervalo
     };
   }, []);
-  
 
+  // Função para tratar o clique em um item (abre detalhes)
   const handleItemClick = (itemId) => {
     axios.get(`http://localhost:8080/livros/${itemId}`)
       .then(response => {
-        setSelectedItem(response.data);
+        setSelectedItem(response.data); // Exibe detalhes do item selecionado
       })
       .catch(error => console.error('Erro ao carregar o item', error));
   };
 
+  // Função para adicionar um novo item
   const addItem = (newItem) => {
     axios.post('http://localhost:8080/livros', newItem)
-      .then(response => setItems([...items, response.data]))
+      .then(response => setItems([...items, response.data])) // Adiciona o item ao estado
       .catch(error => console.error('Erro ao adicionar item', error));
   };
 
+  // Função para remover um item
   const removeItem = (itemId) => {
     axios.delete(`http://localhost:8080/livros/${itemId}`)
-      .then(() => setItems(items.filter(item => item.id !== itemId)))
+      .then(() => setItems(items.filter(item => item.id !== itemId))) // Remove o item do estado
       .catch(error => console.error('Erro ao remover item', error));
   };
 
+  // Função para atualizar um item
   const updateItem = (updatedItem) => {
     axios.put(`http://localhost:8080/livros/${updatedItem.id}`, updatedItem)
       .then(() => {
         setItems(items.map(item => (item.id === updatedItem.id ? updatedItem : item)));
-        setSelectedItem(null);
+        setSelectedItem(null); // Fecha a exibição do item após atualização
       })
       .catch(error => console.error('Erro ao editar item', error));
   };
+
+  // Função para lidar com a mudança de filtro de gêneros
   const handleFilterChange = (selectedGenres) => {
-    setSelectedGenres(selectedGenres);
+    setSelectedGenres(selectedGenres); // Atualiza os gêneros selecionados
   };
 
-   return (
+  return (
     <div className="main-container">
-      <ItemForm onAddItem={addItem} />
+      <ItemForm onAddItem={addItem} /> {/* Formulário para adicionar novos itens */}
       <div className="catalogo-layout">
         <div className="catalogo-filtro">
-          <Filtro onFilterChange={handleFilterChange} />
+          <Filtro onFilterChange={handleFilterChange} /> {/* Filtro para gêneros */}
         </div>
         <div ref={carouselRef} className="catalogo-carrossel">
           <ItemTable
-            items={filteredItems}
-            onItemClick={handleItemClick}
-            onRemoveItem={removeItem}
+            items={filteredItems} // Passa os itens filtrados
+            onItemClick={handleItemClick} // Lida com o clique no item
+            onRemoveItem={removeItem} // Lida com a remoção do item
           />
         </div>
       </div>
       {selectedItem && (
         <ItemDetails
-          item={selectedItem}
-          onUpdateItem={updateItem}
-          onClose={() => setSelectedItem(null)}
+          item={selectedItem} // Passa os detalhes do item selecionado
+          onUpdateItem={updateItem} // Lida com a atualização do item
+          onClose={() => setSelectedItem(null)} // Fecha os detalhes do item
         />
       )}
     </div>
-  ); 
-
+  );
 }
 
 export default Catalogo;

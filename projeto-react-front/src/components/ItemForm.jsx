@@ -1,17 +1,24 @@
 import React, { useState } from 'react';
-import styles from '../styles/components/ItemForm.module.css'; // Importando o módulo CSS
+import styles from '../styles/components/ItemForm.module.css'; // Importa o módulo CSS para estilização
 
 function ItemForm({ onAddItem }) {
+  // Estados locais para gerenciar os valores dos campos do formulário
   const [nome, setNome] = useState('');
   const [autor, setAutor] = useState('');
   const [ano, setAno] = useState('');
   const [genero, setGenero] = useState('');
   const [imagem, setImagem] = useState('');
 
+  // Função chamada ao enviar o formulário
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault(); // Previne o comportamento padrão do formulário (recarregar a página)
+
+    // Cria um novo objeto com os valores dos campos
     const newItem = { nome, autor, ano, genero, imagem };
-    onAddItem(newItem);
+
+    onAddItem(newItem); // Passa o novo item para o manipulador recebido por props
+
+    // Reseta os valores dos campos após adicionar o item
     setNome('');
     setAutor('');
     setAno('');
@@ -20,9 +27,9 @@ function ItemForm({ onAddItem }) {
   };
 
   return (
-    <div className={styles.itemFormContainer}>
+    <div className={styles.itemFormContainer}> {/* Container principal do formulário */}
       <h2 className={styles.itemFormTitle}>Adicionar Novo Livro</h2>
-      <form onSubmit={handleSubmit} className={styles.itemForm}>
+      <form onSubmit={handleSubmit} className={styles.itemForm}> {/* Início do formulário */}
         <input
           type="text"
           value={nome}
@@ -63,7 +70,9 @@ function ItemForm({ onAddItem }) {
           required
           className={styles.itemFormInput}
         />
-        <button type="submit" className={styles.itemFormButton}>Adicionar</button>
+        <button type="submit" className={styles.itemFormButton}> {/* Botão de envio do formulário */}
+          Adicionar
+        </button>
       </form>
     </div>
   );
