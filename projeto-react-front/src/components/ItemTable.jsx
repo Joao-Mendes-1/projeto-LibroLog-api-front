@@ -11,7 +11,7 @@ function ItemTable({ items, onItemClick, onRemoveItem }) {
             <div key={item.id} className={styles['item-card-horizontal']}>
               {/* Exibe a imagem do item; utiliza uma imagem padrão caso nenhuma seja fornecida */}
               <img
-                src={item.imagem || 'default-image.jpg'}
+                src={item.imagem}
                 alt={item.nome}
                 className={styles['item-card-image-horizontal']}
                 onClick={() => onItemClick(item.id)} // Abre detalhes ao clicar na imagem

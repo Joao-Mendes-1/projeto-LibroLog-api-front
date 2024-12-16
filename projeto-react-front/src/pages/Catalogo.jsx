@@ -54,8 +54,14 @@ function Catalogo() {
   // Controla a rolagem suave do carrossel
   useEffect(() => {
     const carousel = carouselRef.current;
-    const scrollSensitivity = 10; // Sensibilidade da rolagem
+
+    // Verifica se o navegador é o Google Chrome
+    const isChrome = /chrome|crios/i.test(navigator.userAgent) && !/edge/i.test(navigator.userAgent);
+
+    const scrollSensitivity = isChrome ? 10000 : 10; // Sensibilidade da rolagem (10000 no Chrome)
     const friction = 0.85; // Fator de fricção para desacelerar a rolagem
+
+    const scrollVelocity = { current: 0 };
 
     // Função que lida com o evento de rolagem
     const handleWheel = (event) => {
@@ -68,9 +74,9 @@ function Catalogo() {
       if (Math.abs(scrollVelocity.current) > 1) {
         carousel.scrollLeft += scrollVelocity.current;
         scrollVelocity.current *= friction; // Aplica a fricção
-        requestAnimationFrame(smoothScroll); // Mantém a animação fluida
+        requestAnimationFrame(smoothScroll); // Continua o ciclo de animação
       } else {
-        scrollVelocity.current = 0;
+        scrollVelocity.current = 0; // Para a animação quando a velocidade for insignificante
       }
     };
 
@@ -81,14 +87,17 @@ function Catalogo() {
       }
     };
 
-    carousel.addEventListener('wheel', handleWheel);
-    const intervalId = setInterval(startSmoothScroll, 16); // Intervalo para animação fluida
+    carousel.addEventListener('wheel', handleWheel, { passive: false }); // Garante que o preventDefault funcione
 
+    // Inicia o loop para animação fluida
+    const intervalId = setInterval(startSmoothScroll, 16);
+  
+    // Remove eventos e limpa intervalos ao desmontar o componente
     return () => {
-      carousel.removeEventListener('wheel', handleWheel); // Limpeza do evento
-      clearInterval(intervalId); // Limpeza do intervalo
+      carousel.removeEventListener('wheel', handleWheel);
+      clearInterval(intervalId);
     };
-  }, []);
+  }, []); // Hook de efeito
 
   // Função para tratar o clique em um item (abre detalhes)
   const handleItemClick = (itemId) => {
