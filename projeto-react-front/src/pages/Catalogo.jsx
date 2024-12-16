@@ -58,7 +58,7 @@ function Catalogo() {
     // Verifica se o navegador é o Google Chrome
     const isChrome = /chrome|crios/i.test(navigator.userAgent) && !/edge/i.test(navigator.userAgent);
 
-    const scrollSensitivity = isChrome ? 10000 : 10; // Sensibilidade da rolagem (10000 no Chrome)
+    const scrollSensitivity = isChrome ? 10000 : 50; // Sensibilidade da rolagem (10000 no Chrome)
     const friction = 0.85; // Fator de fricção para desacelerar a rolagem
 
     const scrollVelocity = { current: 0 };
