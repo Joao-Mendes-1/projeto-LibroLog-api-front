@@ -65,7 +65,7 @@ body, html {
 /* Carrossel com largura fixa */
 .catalogo-carrossel {
   width: 800px; /* Largura fixa para o carrossel */
-  overflow-x: auto;
+  overflow-x: smooth;
   display: flex;
   gap: 10px;
 }
